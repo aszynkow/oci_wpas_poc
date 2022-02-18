@@ -647,6 +647,14 @@ output "Okit_In001PrivateIP" {
     value = local.Okit_In001_private_ip
 }
 
+output "Exa_backup_subnet_id" {
+    value = local.Okit_Sn003_id
+}
+
+output "Exa_client_subnet_id" {
+    value = local.Okit_Sn002_id
+}
+
 # ------ Create Block Storage Attachments
 
 # ------ Create VNic Attachments
