@@ -655,6 +655,10 @@ output "Exa_client_subnet_id" {
     value = local.Okit_Sn002_id
 }
 
+output "Vcn_id" {
+    value = local.Okit_Vcn001_id
+}
+
 # ------ Create Block Storage Attachments
 
 # ------ Create VNic Attachments
