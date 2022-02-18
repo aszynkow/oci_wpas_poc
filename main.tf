@@ -332,7 +332,7 @@ locals {
 
 # ------ Create Route Table
 # ------- Update VCN Default Route Table
-resource "oci_core_default_route_table" "Okit_Rt001" {
+/*resource "oci_core_default_route_table" "Okit_Rt001" {
     # Required
     manage_default_resource_id = local.Okit_Vcn001_default_route_table_id
     #compartment_id = local.Okit_Comp002_id
@@ -356,7 +356,7 @@ resource "oci_core_default_route_table" "Okit_Rt001" {
 locals {
     Okit_Rt001_id = oci_core_default_route_table.Okit_Rt001.id
     }
-
+*/
 
 # ------ Create Route Table
 resource "oci_core_route_table" "Okit_Rt002" {
