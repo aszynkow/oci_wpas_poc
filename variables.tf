@@ -30,7 +30,7 @@ variable azure_range_01 {
 }
 
 variable drg1_id {
-    default = "ocid1.drg.oc1.ap-sydney-1.aaaaaaaaol74jfmb57ti73u5wq7dohp4t4pxu3fqtjsptq5feg3fcdfhe33q"
+    default = "ocid1.drg.oc1.ap-sydney-1.aaaaaaaa2nyev6iwogcz7mxofwjhpxq5qehs5lds45pgrcigytvlv5zn3asq"
 }
 
 variable ssh_authorized_keys {
