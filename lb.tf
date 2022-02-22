@@ -7,7 +7,7 @@ resource oci_load_balancer_load_balancer hss_wpaspoclb {
   ip_mode    = "IPV4"
   is_private = "true"
   network_security_group_ids = [
-    oci_core_network_security_group.hss_wpaspocnsg1lb01.id,
+    oci_core_network_security_group.nsglb01.id,
   ]
   #reserved_ips = <<Optional value not found in discovery>>
   shape = "flexible"
