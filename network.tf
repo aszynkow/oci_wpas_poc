@@ -16,7 +16,7 @@ resource oci_core_subnet hss_wpaspoclbsub {
   #availability_domain = <<Optional value not found in discovery>>
   cidr_block     = var.lb_subnet_cidr
   compartment_id = var.compartment_ocid
-  dhcp_options_id = oci_core_vcn.export_wpaspocvcn.default_dhcp_options_id
+  dhcp_options_id = local.Okit_Vcn001_dhcp_options_id
   display_name    = "wpaspoclbsub"
   dns_label       = "wpaspoclbsub"
   freeform_tags = var.freeform_tags
