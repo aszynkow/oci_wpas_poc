@@ -38,7 +38,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
   ]
 }
 
-/*resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
+resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
   connection_configuration {
     backend_tcp_proxy_protocol_version = "0"
     idle_timeout_in_seconds            = "60"
@@ -58,7 +58,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
     certificate_ids = [
       local.lb_certificate_id ,
     ]
-    certificate_name  = "webpoccert1"
+    #certificate_name  = "webpoccert1"
     cipher_suite_name = "oci-default-ssl-cipher-suite-v1"
     protocols = [
       "TLSv1.2",
@@ -70,7 +70,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
     verify_peer_certificate = "false"
   }
 }
-*/
+
 resource oci_load_balancer_backend_set hss_wpaspoclbbs01 {
   health_checker {
     interval_ms         = "10000"
