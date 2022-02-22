@@ -9,6 +9,8 @@ locals {
 #    )
     home_region = lookup(element(data.oci_identity_region_subscriptions.HomeRegion.region_subscriptions, 0), "region_name")
 
+    lb_certificate_id = data.oci_certificates_management_certificate.lb_certificate.id
+
     DeploymentCompartment_id              = var.compartment_ocid
     #Network_comp_id = var.net_compartment_id
     env_name = var.env_name

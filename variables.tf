@@ -56,6 +56,10 @@ variable freeform_tags {
 variable vm1_name {
     default = "LUORSHSSAPP004"
 }
+
+variable lb_certificate_id {
+    default = ""
+}
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
 }*/
