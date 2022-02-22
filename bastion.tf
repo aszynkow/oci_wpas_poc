@@ -3,7 +3,7 @@ resource "oci_bastion_bastion" "wms_bastion" {
 	#count                        = var.use_bastion_service ? 1 : 0
     bastion_type = var.bastion_type
     compartment_id = local.Okit_Comp002_id
-    target_subnet_id = local.Okit_Sn001_idsubnet_id
+    target_subnet_id = local.Okit_Sn001_id
 
     #Optional
     client_cidr_block_allow_list = var.bastion_client_cidr_block_allow_list
