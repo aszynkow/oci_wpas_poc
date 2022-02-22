@@ -58,7 +58,7 @@ variable vm1_name {
 }
 
 variable lb_certificate_id {
-    default = ""
+    default = "ocid1.certificate.oc1.ap-sydney-1.amaaaaaajdjgirqalqg4ypm2qymu5muglfowkzpusp6uubqtnejazof62nkq"
 }
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
