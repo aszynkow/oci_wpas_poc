@@ -58,7 +58,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
     certificate_ids = [
       local.lb_certificate_id ,
     ]
-    certificate_name  =
+    certificate_name  = "webpoccert1"
     cipher_suite_name = "oci-default-ssl-cipher-suite-v1"
     protocols = [
       "TLSv1.2",
