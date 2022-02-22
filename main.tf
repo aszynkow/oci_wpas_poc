@@ -31,4 +31,10 @@ locals {
     drgrt_name = join("",[local.env_name,"drgrt"])
     sgwrt_name = join("",[local.env_name,"sgwrt"])
 
+    lbsl_name = join("",[local.env_name,"lbsl1"])
+
+    #display_name = "wpaspoclbrt"
+    #display_name    = "wpaspoclbsub"
+    #dns_label       = "wpaspoclbsub"
+
 }

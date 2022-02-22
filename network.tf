@@ -12,6 +12,58 @@
     enable_delete = false
 }
 */
+resource oci_core_subnet hss_wpaspoclbsub {
+  #availability_domain = <<Optional value not found in discovery>>
+  cidr_block     = var.lb_subnet_cidr
+  compartment_id = var.compartment_ocid
+  dhcp_options_id = oci_core_vcn.export_wpaspocvcn.default_dhcp_options_id
+  display_name    = "wpaspoclbsub"
+  dns_label       = "wpaspoclbsub"
+  freeform_tags = var.freeform_tags
+  #ipv6cidr_block = <<Optional value not found in discovery>>
+  prohibit_internet_ingress  = "true"
+  prohibit_public_ip_on_vnic = "true"
+  route_table_id             = oci_core_route_table.hss_wpaspoclbrt.id
+  security_list_ids = [
+    oci_core_security_list.hss_empty.id,
+  ]
+  vcn_id = local.Okit_Vcn001_id   
+}
+
+resource oci_core_route_table hss_wpaspoclbrt {
+  compartment_id = var.compartment_ocid
+  display_name = "wpaspoclbrt"
+  freeform_tags = var.freeform_tags
+  route_rules {
+    description       = "On Prem"
+    destination       = var.onprem2
+    destination_type  = "CIDR_BLOCK"
+    network_entity_id = local.Okit_Drg001_id
+  }
+  vcn_id = local.Okit_Vcn001_id 
+}
+
+resource oci_core_security_list hss_empty {
+  compartment_id = var.compartment_ocid
+  display_name = local.lbsl_name
+  egress_security_rules {
+    #description = <<Optional value not found in discovery>>
+    destination      = var.sub01_ip_range
+    destination_type = "CIDR_BLOCK"
+    #icmp_options = <<Optional value not found in discovery>>
+    protocol  = "6"
+    stateless = "false"
+    tcp_options {
+      max = "80"
+      min = "80"
+      #source_port_range = <<Optional value not found in discovery>>
+    }
+    #udp_options = <<Optional value not found in discovery>>
+  }
+  freeform_tags = var.freeform_tags
+  vcn_id = local.Okit_Vcn001_id  
+}
+
 
 locals {
     Okit_Comp002_id = local.DeploymentCompartment_id#oci_identity_compartment.Okit_Comp002.id

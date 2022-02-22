@@ -17,12 +17,20 @@ variable sub02_ip_range {
     default = "10.43.4.32/27"
 }
 
+variable lb_subnet_cidr {
+    default = "10.43.4.96/27"
+}
+
 variable sub03_ip_range {
     default = "10.43.4.64/27"
 }
 
 variable on_prem_ip_range {
     default = "10.42.0.0/16"
+}
+
+variable on_prem2 {
+    default = "10.0.0.0/8"
 }
 
 variable azure_range_01 {
