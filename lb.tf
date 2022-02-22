@@ -39,7 +39,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
 }
 
 resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
-  count         = var.lb_certificate_id ? 1 : 0
+  count         = var.lb_certificate_id != null ? 1 : 0
   connection_configuration {
     backend_tcp_proxy_protocol_version = "0"
     idle_timeout_in_seconds            = "60"
