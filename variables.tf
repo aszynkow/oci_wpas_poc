@@ -29,7 +29,7 @@ variable on_prem_ip_range {
     default = "10.42.0.0/16"
 }
 
-variable on_prem2 {
+variable on_prem_ip_range2 {
     default = "10.0.0.0/8"
 }
 

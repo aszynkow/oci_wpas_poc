@@ -36,7 +36,7 @@ resource oci_core_route_table hss_wpaspoclbrt {
   freeform_tags = var.freeform_tags
   route_rules {
     description       = "On Prem"
-    destination       = var.onprem2
+    destination       = var.on_prem_ip_range2
     destination_type  = "CIDR_BLOCK"
     network_entity_id = local.Okit_Drg001_id
   }
