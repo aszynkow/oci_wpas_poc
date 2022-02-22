@@ -23,9 +23,7 @@ resource "oci_core_instance" "Okit_In001" {
 #        nested_object = "{\"some_string\": \"stringB\", \"object\": {\"some_string\": \"stringC\"}}"
 #    }
     metadata = {
-        ssh_authorized_keys = [
-    chomp(tls_private_key.ssh_key.public_key_openssh),
-  ]
+        ssh_authorized_keys = chomp(tls_private_key.ssh_key.public_key_openssh)
         #ssh_authorized_keys = var.ssh_authorized_keys
         user_data           = base64encode("")
     }
