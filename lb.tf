@@ -2,7 +2,7 @@
 
 resource oci_load_balancer_load_balancer hss_wpaspoclb {
   compartment_id = var.compartment_ocid
-  display_name = "wpaspoclb"
+  display_name = local.lb_name#"wpaspoclb"
   freeform_tags = var.freeform_tags
   ip_mode    = "IPV4"
   is_private = "true"
@@ -10,10 +10,10 @@ resource oci_load_balancer_load_balancer hss_wpaspoclb {
     oci_core_network_security_group.nsglb01.id,
   ]
   #reserved_ips = <<Optional value not found in discovery>>
-  shape = "flexible"
+  shape = var.lb_shape#"flexible"
   shape_details {
-    maximum_bandwidth_in_mbps = "10"
-    minimum_bandwidth_in_mbps = "10"
+    maximum_bandwidth_in_mbps = var.maximum_bandwidth_in_mbps#"10"
+    minimum_bandwidth_in_mbps = var.minimum_bandwidth_in_mbps#"10"
   }
   subnet_ids = [
     oci_core_subnet.hss_wpaspoclbsub.id,
@@ -29,7 +29,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
   hostname_names = [
   ]
   load_balancer_id = oci_load_balancer_load_balancer.hss_wpaspoclb.id
-  name             = "wpaspoclblsnr01"
+  name             = local.lstn1_name#"wpaspoclblsnr01"
   #path_route_set_name = <<Optional value not found in discovery>>
   port     = "80"
   protocol = "HTTP"
@@ -48,7 +48,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
   hostname_names = [
   ]
   load_balancer_id = oci_load_balancer_load_balancer.hss_wpaspoclb.id
-  name             = "wpaspoclblsnr02"
+  name             = local.lstn2_name#"wpaspoclblsnr02"
   #path_route_set_name = <<Optional value not found in discovery>>
   port     = "443"
   protocol = "HTTP"
@@ -81,10 +81,10 @@ resource oci_load_balancer_backend_set hss_wpaspoclbbs01 {
     retries             = "3"
     return_code         = "200"
     timeout_in_millis   = "3000"
-    url_path            = "/wpas/Login.html"
+    url_path            = var.healthch_url_path#"/wpas/Login.html"
   }
   load_balancer_id = oci_load_balancer_load_balancer.hss_wpaspoclb.id
-  name             = "wpaspoclbbs01"
+  name             = local.bcknd1_name#"wpaspoclbbs01"
   policy           = "ROUND_ROBIN"
 }
 

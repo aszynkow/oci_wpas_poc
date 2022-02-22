@@ -17,8 +17,8 @@ resource oci_core_subnet hss_wpaspoclbsub {
   cidr_block     = var.lb_subnet_cidr
   compartment_id = var.compartment_ocid
   dhcp_options_id = local.Okit_Vcn001_dhcp_options_id
-  display_name    = "wpaspoclbsub"
-  dns_label       = "wpaspoclbsub"
+  display_name    = local.lbsubnet_name#"wpaspoclbsub"
+  dns_label       = local.lbdns_name#"wpaspoclbsub"
   freeform_tags = var.freeform_tags
   #ipv6cidr_block = <<Optional value not found in discovery>>
   prohibit_internet_ingress  = "true"
@@ -32,7 +32,7 @@ resource oci_core_subnet hss_wpaspoclbsub {
 
 resource oci_core_route_table hss_wpaspoclbrt {
   compartment_id = var.compartment_ocid
-  display_name = "wpaspoclbrt"
+  display_name = local.lbrt_name
   freeform_tags = var.freeform_tags
   route_rules {
     description       = "On Prem"

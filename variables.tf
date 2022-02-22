@@ -57,6 +57,22 @@ variable vm1_name {
     default = "LUORSHSSAPP004"
 }
 
+variable lb_shape {
+    default = "flexible"
+}
+
+variable  maximum_bandwidth_in_mbps {
+    default ="10"
+}
+
+variable minimum_bandwidth_in_mbps {
+    default = "10"
+}
+
+variable healthch_url_path {
+    default = "/wpas/Login.html"
+}
+
 variable lb_certificate_id {
     default = "ocid1.certificate.oc1.ap-sydney-1.amaaaaaajdjgirqalqg4ypm2qymu5muglfowkzpusp6uubqtnejazof62nkq"
 }
@@ -70,6 +86,7 @@ variable max_session_ttl_in_seconds {
 variable bastion_type {
     default = "STANDARD"
 }
+
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
 }*/

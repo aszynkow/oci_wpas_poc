@@ -33,11 +33,15 @@ locals {
     drgrt_name = join("",[local.env_name,"drgrt"])
     sgwrt_name = join("",[local.env_name,"sgwrt"])
 
+    lb_name = join("",[local.env_name,"lb"])
     lbsl_name = join("",[local.env_name,"lbsl1"])
+    lstn1_name = join("",[local.env_name,"lstn1"])
+    lstn2_name = join("",[local.env_name,"lstn2"])
     nsglb1_name = join("",[local.env_name,"nsglb1"])
-    #display_name = "wpaspoclbrt"
-    #display_name    = "wpaspoclbsub"
-    #dns_label       = "wpaspoclbsub"
+    bcknd1_name = join("",[local.env_name,"bcknd1"])
+    lbsubnet_name = join("",[local.env_name,"lbsub"])
+    lbdns_name = join("",[local.env_name,"lbsub"])
+    lbrt_name = join("",[local.env_name,"lbrt"])
 
     bastion_name = join("",[local.env_name,"bst1"])
 
