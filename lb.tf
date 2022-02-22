@@ -38,7 +38,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr01 {
   ]
 }
 
-resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
+/*resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
   connection_configuration {
     backend_tcp_proxy_protocol_version = "0"
     idle_timeout_in_seconds            = "60"
@@ -70,7 +70,7 @@ resource oci_load_balancer_listener hss_wpaspoclb_wpaspoclblsnr02 {
     verify_peer_certificate = "false"
   }
 }
-
+*/
 resource oci_load_balancer_backend_set hss_wpaspoclbbs01 {
   health_checker {
     interval_ms         = "10000"
