@@ -35,7 +35,6 @@ data "oci_identity_region_subscriptions" "HomeRegion" {
 data "oci_certificates_management_certificate" "lb_certificate" {
     #Required
     certificate_id = var.lb_certificate_id
-    compartment_id           = var.compartment_ocid
 }
 
 # ------ Get List Images
