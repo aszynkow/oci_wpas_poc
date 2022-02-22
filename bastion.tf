@@ -1,4 +1,4 @@
-resource "oci_bastion_bastion" "wms_bastion" {
+resource "oci_bastion_bastion" "hss_bastion" {
     #Required
 	#count                        = var.use_bastion_service ? 1 : 0
     bastion_type = var.bastion_type
