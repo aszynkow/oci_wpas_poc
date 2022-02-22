@@ -60,7 +60,16 @@ variable vm1_name {
 variable lb_certificate_id {
     default = "ocid1.certificate.oc1.ap-sydney-1.amaaaaaajdjgirqalqg4ypm2qymu5muglfowkzpusp6uubqtnejazof62nkq"
 }
+variable bastion_client_cidr_block_allow_list {
+    default = ["0.0.0.0/0"]
+}
+variable max_session_ttl_in_seconds {
+    default = "10800"
+
+}
+variable bastion_type {
+    default = "STANDARD"
+}
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
 }*/
-       

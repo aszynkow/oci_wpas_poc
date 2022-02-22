@@ -39,4 +39,6 @@ locals {
     #display_name    = "wpaspoclbsub"
     #dns_label       = "wpaspoclbsub"
 
+    bastion_name = join("",[local.env_name,"bst1"])
+
 }
