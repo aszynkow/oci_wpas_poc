@@ -119,7 +119,7 @@ variable vm_source_type {
     default = ["bootVolume","bootVolume","bootVolume","bootVolume","bootVolume"]
 }
 variable vm_state {
-    default = ["RUNNING","RUNNING","RUNNING","RUNNING",,"RUNNING"]
+    default = ["RUNNING","RUNNING","RUNNING","RUNNING","RUNNING"]
 }
 #variable APP162_source_image_id { default = "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" }
 #variable APP163_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
