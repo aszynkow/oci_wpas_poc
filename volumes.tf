@@ -29,7 +29,7 @@ resource oci_core_volume_attachment volumeattachment20220125063516 {
   count = local.vm_count
   attachment_type = "paravirtualized"
   device          = "/dev/oracleoci/oraclevdb"
-  display_name    =  join("",["volumeattachmenocfs2,"count.index])
+  display_name    =  join("",["volumeattachmenocfs2",count.index])
   #encryption_in_transit_type = <<Optional value not found in discovery>>
   instance_id                         = oci_core_instance.APP162[count.index].id
   is_pv_encryption_in_transit_enabled = "false"
@@ -43,7 +43,7 @@ resource oci_core_volume_attachment volumeattachment20220207044931 {
   count = local.vm_count
   attachment_type = "paravirtualized"
   device          = "/dev/oracleoci/oraclevdc"
-  display_name    = join("",["volumeattachmenocfs2,"count.index])
+  display_name    = join("",["volumeattachmenocfs210gb",count.index])
   #encryption_in_transit_type = <<Optional value not found in discovery>>
   instance_id                         = oci_core_instance.APP162[count.index].id
   is_pv_encryption_in_transit_enabled = "false"
