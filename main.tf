@@ -45,8 +45,6 @@ locals {
     lbrt_name = join("",[local.env_name,"lbrt"])
 
     bastion_name = join("",[local.env_name,"bst1"])
-    #var.lb_certificate_id != null ? 1 : 0
-    tlscount =  var.ssh_authorized_keys != null ? 0 : 1
-    ssh_authorized_keys = var.ssh_authorized_keys !=null ? var.ssh_authorized_keys : chomp(tls_private_key.ssh_key.public_key_openssh[local.ltlscount])
-    priv_key = tls_private_key.ssh_key.private_key_pem[local.tlscount]
+
+    ssh_authorized_keys = var.ssh_authorized_keys !=null ? var.ssh_authorized_keys : local.gen_public_key
 }

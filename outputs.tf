@@ -36,5 +36,5 @@ output "Vcn_id" {
 }
 */
 output "ssh_public_key" {
-  value = local.aux_pub_key
+  value = local.ssh_authorized_keys
 }
