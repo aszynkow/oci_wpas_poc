@@ -41,7 +41,7 @@ resource oci_core_instance APP162 {
     #is_live_migration_preferred = <<Optional value not found in discovery>>
     recovery_action = "RESTORE_INSTANCE"
   }
-  availability_domain = data.oci_identity_availability_domain.export_YxcO-AP-SYDNEY-1-AD-1.name
+  availability_domain = local.ad
   #capacity_reservation_id = <<Optional value not found in discovery>>
   compartment_id = var.compartment_ocid
   create_vnic_details {
