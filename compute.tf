@@ -52,7 +52,7 @@ resource oci_core_instance APP162 {
     hostname_label = "lporshssapp162"
     #private_ip             = "10.43.4.13"
     skip_source_dest_check = "false"
-    subnet_id              = local.sub01_ip_range
+    subnet_id              = local.Okit_Sn001_id
     #vlan_id = <<Optional value not found in discovery>>
   }
   #dedicated_vm_host_id = <<Optional value not found in discovery>>
