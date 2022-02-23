@@ -46,6 +46,10 @@ locals {
     lbdns_name = join("",[local.env_name,"lbsub"])
     lbrt_name = join("",[local.env_name,"lbrt"])
 
+    gold_policy_name = join("",[local.env_name,"goldbckp"])
+    brz_policy_name = join("",[local.env_name,"brzbck[]"])
+    volgroup_name = join("",[local.env_name,"volgrp"])
+
     bastion_name = join("",[local.env_name,"bst1"])
 
     gen_public_key = chomp(tls_private_key.ssh_key.public_key_openssh)

@@ -91,6 +91,9 @@ variable vm_count {
     default = "5"
 }
 
+variable master_vm {
+    default = "5"
+}
 variable vm_display_name {
     default = ["LPORSHSSAPP161","LPORSHSSAPP162","LPORSHSSAPP163","LPORSHSSAPP164","LPORSHSSAPP165"]
 }
