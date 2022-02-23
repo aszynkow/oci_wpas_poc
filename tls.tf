@@ -2,6 +2,6 @@
 ## All rights reserved. The Universal Permissive License (UPL), Version 1.0 as shown at http://oss.oracle.com/licenses/upl
 
 resource "tls_private_key" "ssh_key" {
-  count =   var.ssh_authorized_keys != null ? 0 : 1
+  count = local.tlscount 
   algorithm   = "RSA"
 }
