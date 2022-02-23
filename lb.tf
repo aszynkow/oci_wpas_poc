@@ -89,10 +89,11 @@ resource oci_load_balancer_backend_set hss_wpaspoclbbs01 {
 }
 
 resource oci_load_balancer_backend hss_APP162 {
+  count = local.vm_count
   backendset_name  = oci_load_balancer_backend_set.hss_wpaspoclbbs01.name
   backup           = "false"
   drain            = "false"
-  ip_address       = oci_core_instance.APP162.private_ip
+  ip_address       = oci_core_instance.APP162[count.index].private_ip
   load_balancer_id = oci_load_balancer_load_balancer.hss_wpaspoclb.id
   offline          = "false"
   port             = "80"
