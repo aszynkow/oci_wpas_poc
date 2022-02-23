@@ -1,8 +1,8 @@
 
 resource oci_core_volume_group volgroup {
   availability_domain = local.ad
-  backup_policy_id = oci_core_volume_backup_policy.brz_bckp_policy.id 
-  compartment_id = var.compartment_id
+  backup_policy_id = oci_core_volume_backup_policy.gold_bckp_policy.id 
+  compartment_id = var.compartment_ocid
   display_name = local.volgroup_name
   freeform_tags = var.freeform_tags
   source_details {
@@ -20,8 +20,8 @@ resource oci_core_volume_group volgroup {
 resource oci_core_volume_group volgroup1 {
   count = local.vm_count - 1 
   availability_domain = local.ad
-  backup_policy_id = oci_core_volume_backup_policy.brz_bckp_policy.id 
-  compartment_id = var.compartment_id
+  backup_policy_id = oci_core_volume_backup_policy.bronze_bckp_policy.id 
+  compartment_id = var.compartment_ocid
   display_name = join("",[local.volgroup_name,count.index]) 
   freeform_tags = var.freeform_tags
   source_details {
