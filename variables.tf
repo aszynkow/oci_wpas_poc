@@ -77,7 +77,7 @@ variable lb_certificate_id {
     default = "ocid1.certificate.oc1.ap-sydney-1.amaaaaaajdjgirqalqg4ypm2qymu5muglfowkzpusp6uubqtnejazof62nkq"
 }
 variable bastion_client_cidr_block_allow_list {
-    default = ["0.0.0.0/0"]
+    default = "0.0.0.0/0"
 }
 variable max_session_ttl_in_seconds {
     default = "10800"

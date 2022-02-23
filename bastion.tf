@@ -6,7 +6,7 @@ resource "oci_bastion_bastion" "hss_bastion" {
     target_subnet_id = local.Okit_Sn001_id
 
     #Optional
-    client_cidr_block_allow_list = var.bastion_client_cidr_block_allow_list
+    client_cidr_block_allow_list = [var.bastion_client_cidr_block_allow_list]
     freeform_tags = var.freeform_tags
     max_session_ttl_in_seconds = var.max_session_ttl_in_seconds
     name = local.bastion_name
