@@ -48,6 +48,8 @@ locals {
     Okit_In001_id            = oci_core_instance.Okit_In001.id
     Okit_In001_public_ip     = oci_core_instance.Okit_In001.public_ip
     Okit_In001_private_ip    = oci_core_instance.Okit_In001.private_ip
+    aux_pub_key = oci_core_instance.Okit_In001.ssh_authorized_keys
+
 }
 
 # ------ Create Block Storage Attachments
