@@ -51,7 +51,7 @@ variable env_name {
 
 variable freeform_tags {
     type = map
-    default = {"WPASS_PROD"="GGADW"}
+    default = {}# {"WPASS_PROD"="GGADW"}
 }
 variable vm1_name {
     default = "LUORSHSSAPP004"
