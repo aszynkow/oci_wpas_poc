@@ -114,6 +114,13 @@ variable vm_source_image_id {
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrg2bakv2pe66jf2z4vvijquj4xvudj3w3f3xx7crqi54ojpwjknza",
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrzraoxapcs6koo7lfuclqhfhadch6hzwx3ug3v7dsd4kyuww6ofgq" ]
 }
+
+variable vm_source_type {
+    default = ["bootVolume","bootVolume","bootVolume","bootVolume","bootVolume"]
+}
+variable vm_state {
+    default = ["STOPPED","STOPPED","STOPPED","STOPPED","RUNNING"]
+}
 #variable APP162_source_image_id { default = "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" }
 #variable APP163_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
 #variable APP164_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
