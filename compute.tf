@@ -80,7 +80,7 @@ resource oci_core_instance APP162 {
         user_data           = base64encode("")
   }
   #preserve_boot_volume = <<Optional value not found in discovery>>
-  shape = vm.shape[count.index]#"VM.Standard.E3.Flex"#"VM.Optimized3.Flex"
+  shape = var.vm_shape[count.index]#"VM.Standard.E3.Flex"#"VM.Optimized3.Flex"
   shape_config {
     memory_in_gbs             = "64"
     ocpus                     = "4"
