@@ -46,5 +46,8 @@ locals {
 
     bastion_name = join("",[local.env_name,"bst1"])
 
+    gen_public_key = chomp(tls_private_key.ssh_key.public_key_openssh)
+    gen_priv_key = tls_private_key.ssh_key.private_key_pem
+
     ssh_authorized_keys = var.ssh_authorized_keys !=null ? var.ssh_authorized_keys : local.gen_public_key
 }
