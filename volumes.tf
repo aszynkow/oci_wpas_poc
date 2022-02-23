@@ -34,7 +34,7 @@ resource oci_core_volume_attachment volumeattachment20220125063516 {
   instance_id                         = oci_core_instance.APP162[count.index].id
   is_pv_encryption_in_transit_enabled = "false"
   is_read_only                        = "false"
-  #is_shareable = <<Optional value not found in discovery>>
+  is_shareable = "true"
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared.id
 }
@@ -48,7 +48,7 @@ resource oci_core_volume_attachment volumeattachment20220207044931 {
   instance_id                         = oci_core_instance.APP162[count.index].id
   is_pv_encryption_in_transit_enabled = "false"
   is_read_only                        = "false"
-  #is_shareable = <<Optional value not found in discovery>>
+  is_shareable = "true"
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared_10gb.id
 }
