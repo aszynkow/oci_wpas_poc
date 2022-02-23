@@ -86,7 +86,7 @@ resource oci_core_instance APP162 {
     boot_volume_size_in_gbs = "60"
     #kms_key_id = <<Optional value not found in discovery>>
     source_id   = var.APP162_source_image_id
-    source_type = "image"
+    source_type = "bootVolume"
   }
   state = "RUNNING"
 }
