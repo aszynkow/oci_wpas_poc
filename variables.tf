@@ -87,6 +87,11 @@ variable bastion_type {
     default = "STANDARD"
 }
 
+variable APP161_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+variable APP162_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaakgn3mdwtcto5gmzdmgo2agtumly67tzlnxakj3fiq6zbthdw74ba" }
+variable APP163_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+variable APP164_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+variable APP165_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
 }*/

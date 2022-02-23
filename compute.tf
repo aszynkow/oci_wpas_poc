@@ -1,126 +1,92 @@
-resource "oci_core_instance" "Okit_In001" {
-    # Required
-    compartment_id      = local.Okit_Comp002_id
-    shape               = "VM.Standard.E3.Flex"
-    # Optional
-    display_name        = local.vm1_name
-    availability_domain = local.ad
-    agent_config {
-        # Optional
+resource oci_core_instance APP162 {
+  agent_config {
+    are_all_plugins_disabled = "false"
+    is_management_disabled   = "false"
+    is_monitoring_disabled   = "false"
+    plugins_config {
+      desired_state = "DISABLED"
+      name          = "Vulnerability Scanning"
     }
-    create_vnic_details {
-        # Required
-        subnet_id        = local.Okit_Sn001_id
-        # Optional
-        assign_public_ip = false
-        display_name     = local.vm1_name
-        hostname_label   = local.vm1_name
-        skip_source_dest_check = "false"
-        freeform_tags    =  var.freeform_tags
+    plugins_config {
+      desired_state = "ENABLED"
+      name          = "OS Management Service Agent"
     }
-#    extended_metadata {
-#        some_string = "stringA"
-#        nested_object = "{\"some_string\": \"stringB\", \"object\": {\"some_string\": \"stringC\"}}"
-#    }
-    metadata = {
+    plugins_config {
+      desired_state = "DISABLED"
+      name          = "Management Agent"
+    }
+    plugins_config {
+      desired_state = "ENABLED"
+      name          = "Custom Logs Monitoring"
+    }
+    plugins_config {
+      desired_state = "ENABLED"
+      name          = "Compute Instance Run Command"
+    }
+    plugins_config {
+      desired_state = "ENABLED"
+      name          = "Compute Instance Monitoring"
+    }
+    plugins_config {
+      desired_state = "DISABLED"
+      name          = "Block Volume Management"
+    }
+    plugins_config {
+      desired_state = "ENABLED"
+      name          = "Bastion"
+    }
+  }
+  #async = <<Optional value not found in discovery>>
+  availability_config {
+    #is_live_migration_preferred = <<Optional value not found in discovery>>
+    recovery_action = "RESTORE_INSTANCE"
+  }
+  availability_domain = data.oci_identity_availability_domain.export_YxcO-AP-SYDNEY-1-AD-1.name
+  #capacity_reservation_id = <<Optional value not found in discovery>>
+  compartment_id = var.compartment_ocid
+  create_vnic_details {
+    #assign_private_dns_record = <<Optional value not found in discovery>>
+    assign_public_ip = "false"
+    display_name = "LPORSHSSAPP162"
+    freeform_tags = var.freeform_tags
+    hostname_label = "lporshssapp162"
+    #private_ip             = "10.43.4.13"
+    skip_source_dest_check = "false"
+    subnet_id              = local.sub01_ip_range
+    #vlan_id = <<Optional value not found in discovery>>
+  }
+  #dedicated_vm_host_id = <<Optional value not found in discovery>>
+  display_name = "LPORSHSSAPP162"
+  freeform_tags = var.freeform_tags
+  instance_options {
+    are_legacy_imds_endpoints_disabled = "false"
+  }
+  #ipxe_script = <<Optional value not found in discovery>>
+  #is_pv_encryption_in_transit_enabled = <<Optional value not found in discovery>>
+  launch_options {
+    boot_volume_type                    = "PARAVIRTUALIZED"
+    firmware                            = "UEFI_64"
+    is_consistent_volume_naming_enabled = "true"
+    is_pv_encryption_in_transit_enabled = "false"
+    network_type                        = "PARAVIRTUALIZED"
+    remote_data_volume_type             = "PARAVIRTUALIZED"
+  }
+  metadata = {
         ssh_authorized_keys = local.ssh_authorized_keys #chomp(tls_private_key.ssh_key.public_key_openssh)
         #ssh_authorized_keys = var.ssh_authorized_keys
         user_data           = base64encode("")
-    }
-    shape_config {
-        #Optional
-        memory_in_gbs = 16
-        ocpus = 1
-    }
-    source_details {
-        # Required
-        source_id               = data.oci_core_images.Okit_In001Images.images[0]["id"]
-        source_type             = "image"
-        # Optional
-        boot_volume_size_in_gbs = "50"
-#        kms_key_id              = 
-    }
-    preserve_boot_volume = false
-    freeform_tags              =   var.freeform_tags
+  }
+  #preserve_boot_volume = <<Optional value not found in discovery>>
+  shape = "VM.Optimized3.Flex"
+  shape_config {
+    memory_in_gbs             = "64"
+    ocpus                     = "4"
+  }
+  source_details {
+    boot_volume_size_in_gbs = "60"
+    #kms_key_id = <<Optional value not found in discovery>>
+    source_id   = var.APP162_source_image_id
+    source_type = "image"
+  }
+  state = "RUNNING"
 }
-
-locals {
-    Okit_In001_id            = oci_core_instance.Okit_In001.id
-    Okit_In001_public_ip     = oci_core_instance.Okit_In001.public_ip
-    Okit_In001_private_ip    = oci_core_instance.Okit_In001.private_ip
-
-}
-
-# ------ Create Block Storage Attachments
-
-# ------ Create VNic Attachments
-
-/*
-# ------ Get List Images
-data "oci_core_images" "Okit_In002Images" {
-    compartment_id           = var.compartment_ocid
-    operating_system         = "Oracle Linux"
-    operating_system_version = "8"
-    shape                    = "VM.Standard.E3.Flex"
-}
-
-# ------ Create Instance
-resource "oci_core_instance" "Okit_In002" {
-    # Required
-    compartment_id      = local.Okit_Comp002_id
-    shape               = "VM.Standard.E3.Flex"
-    # Optional
-    display_name        = local.vm2_name
-    availability_domain = data.oci_identity_availability_domains.AvailabilityDomains.availability_domains["1" - 1]["name"]
-    agent_config {
-        # Optional
-    }
-    create_vnic_details {
-        # Required
-        subnet_id        = local.Okit_Sn001_id
-        # Optional
-        assign_public_ip = false
-        display_name     = local.vm2_name
-        hostname_label   = local.vm2_name
-        skip_source_dest_check = "false"
-        freeform_tags    =  var.freeform_tags
-    }
-#    extended_metadata {
-#        some_string = "stringA"
-#        nested_object = "{\"some_string\": \"stringB\", \"object\": {\"some_string\": \"stringC\"}}"
-#    }
-    metadata = {
-        ssh_authorized_keys = var.ssh_authorized_keys
-        user_data           = base64encode("")
-    }
-    shape_config {
-        #Optional
-        memory_in_gbs = 16
-        ocpus = 1
-    }
-    source_details {
-        # Required
-        source_id               = data.oci_core_images.Okit_In002Images.images[0]["id"]
-        source_type             = "image"
-        # Optional
-        boot_volume_size_in_gbs = "50"
-#        kms_key_id              = 
-    }
-    preserve_boot_volume = false
-    freeform_tags              =   var.freeform_tags
-}
-
-locals {
-    Okit_In002_id            = oci_core_instance.Okit_In002.id
-    Okit_In002_public_ip     = oci_core_instance.Okit_In002.public_ip
-    Okit_In002_private_ip    = oci_core_instance.Okit_In002.private_ip
-}
-
-output "Okit_In002PublicIP" {
-    value = local.Okit_In002_public_ip
-}
-
-output "Okit_In002PrivateIP" {
-    value = local.Okit_In002_private_ip
-}
-*/

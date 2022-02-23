@@ -88,17 +88,17 @@ resource oci_load_balancer_backend_set hss_wpaspoclbbs01 {
   policy           = "ROUND_ROBIN"
 }
 
-/*resource oci_load_balancer_backend hss_10-43-4-21-80 {
+resource oci_load_balancer_backend hss_APP162 {
   backendset_name  = oci_load_balancer_backend_set.hss_wpaspoclbbs01.name
   backup           = "false"
   drain            = "false"
-  ip_address       = "10.43.4.21"
+  ip_address       = oci_core_instance.APP162.private_ip
   load_balancer_id = oci_load_balancer_load_balancer.hss_wpaspoclb.id
   offline          = "false"
   port             = "80"
   weight           = "1"
 }
-
+/*
 resource oci_load_balancer_backend hss_10-43-4-13-80 {
   backendset_name  = oci_load_balancer_backend_set.hss_wpaspoclbbs01.name
   backup           = "false"
