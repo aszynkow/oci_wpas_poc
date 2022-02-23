@@ -1,7 +1,7 @@
 resource oci_core_volume_backup_policy gold_bckp_policy {
   compartment_id = var.compartment_id
   #destination_region = <<Optional value not found in discovery>>
-  display_name = local.policy_name
+  display_name = local.gold_policy_name
   freeform_tags = var.freeform_tags
   schedules {
     backup_type       = "INCREMENTAL"
