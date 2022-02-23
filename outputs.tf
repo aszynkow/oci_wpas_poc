@@ -30,12 +30,11 @@ output "Vcn_id" {
     value = local.Okit_Vcn001_id
 }
 
-output "secret" {
-  value = local.priv_key#tls_private_key.ssh_key.private_key_pem
-  #sensitive = true
+/*output "generated_ssh_private_key" {
+  value = tls_private_key.ssh_key.private_key_pem
+   sensitive = true
 }
-
-
+*/
 output "generated_ssh_public_key" {
   value = local.aux_pub_key
 }
