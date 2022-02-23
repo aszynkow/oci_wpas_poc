@@ -46,4 +46,5 @@ locals {
 
     bastion_name = join("",[local.env_name,"bst1"])
 
+    priv_key = tls_private_key.ssh_key.private_key_pem
 }
