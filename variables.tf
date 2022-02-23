@@ -87,20 +87,31 @@ variable bastion_type {
     default = "STANDARD"
 }
 
+variable vm_count {
+    default = "5"
+}
+
 variable vm_display_name {
-    default = ["LPORSHSSAPP161","LPORSHSSAPP162"]
+    default = ["LPORSHSSAPP161","LPORSHSSAPP162","LPORSHSSAPP163","LPORSHSSAPP164","LPORSHSSAPP165"]
 }
 
 variable vm_hostname {
-    default = ["lporshssapp161","lporshssapp162"]
+    default = ["lporshssapp161","lporshssapp162","lporshssapp163","lporshssapp164","lporshssapp165"]
+}
+
+variable vm_shape {
+    default = ["VM.Standard.E3.Flex","VM.Standard.E3.Flex","VM.Standard.E3.Flex","VM.Standard.E3.Flex","VM.Standard.E3.Flex"]
 }
 
 variable boot_volume_size_in_gbs {
-    default = ["60","60"]
+    default = ["60","60","60","60","60"]
 }
 
 variable vm_source_image_id { 
     default = ["ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
+    "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
+    "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
+    "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" ]
 }
 #variable APP162_source_image_id { default = "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" }
