@@ -1,4 +1,4 @@
-esource oci_core_instance master {
+resource oci_core_instance master {
 
   agent_config {
     are_all_plugins_disabled = "false"
