@@ -7,6 +7,7 @@ locals {
 #        },
 #        data.oci_identity_tenancy.Tenancy.home_region_key
 #    )
+    ad = data.oci_identity_availability_domains.AvailabilityDomains.availability_domains["1" - 1]["name"]
     home_region = lookup(element(data.oci_identity_region_subscriptions.HomeRegion.region_subscriptions, 0), "region_name")
 
     lb_certificate_id = data.oci_certificates_management_certificate.lb_certificate.id

@@ -4,7 +4,7 @@ resource "oci_core_instance" "Okit_In001" {
     shape               = "VM.Standard.E3.Flex"
     # Optional
     display_name        = local.vm1_name
-    availability_domain = data.oci_identity_availability_domains.AvailabilityDomains.availability_domains["1" - 1]["name"]
+    availability_domain = local.ad
     agent_config {
         # Optional
     }
