@@ -87,11 +87,26 @@ variable bastion_type {
     default = "STANDARD"
 }
 
-variable APP161_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
-variable APP162_source_image_id { default = "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" }
-variable APP163_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
-variable APP164_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
-variable APP165_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+variable vm_display_name {
+    default = ["LPORSHSSAPP161","LPORSHSSAPP162"]
+}
+
+variable vm_hostname {
+    default = ["lporshssapp161","lporshssapp162"]
+}
+
+variable boot_volume_size_in_gbs {
+    default = ["60","60"]
+}
+
+variable vm_source_image_id { 
+    default = ["ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
+    "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" ]
+}
+#variable APP162_source_image_id { default = "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq" }
+#variable APP163_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+#variable APP164_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
+#variable APP165_source_image_id { default = "ocid1.image.oc1.ap-sydney-1.aaaaaaaawty6xev2cdbed4pttz752uv3uv6pi7xi4hvghmvxonrurnv2loba" }
 /*variable net_compartment_id { 
     default = "ocid1.compartment.oc1..aaaaaaaa2ewhxsftfwfneh2q5rwohakwlfu4jvnaolmqz465hzue7yx53ora"
 }*/

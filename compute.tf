@@ -1,4 +1,7 @@
 resource oci_core_instance APP162 {
+
+ count = local.vm_count
+
   agent_config {
     are_all_plugins_disabled = "false"
     is_management_disabled   = "false"
@@ -47,16 +50,16 @@ resource oci_core_instance APP162 {
   create_vnic_details {
     #assign_private_dns_record = <<Optional value not found in discovery>>
     assign_public_ip = "false"
-    display_name = "LPORSHSSAPP162"
+    display_name = var.vm_display_name[count.index]#"LPORSHSSAPP162"
     freeform_tags = var.freeform_tags
-    hostname_label = "lporshssapp162"
+    hostname_label = var.vm_hostname[count.index]#"lporshssapp162"
     #private_ip             = "10.43.4.13"
     skip_source_dest_check = "false"
     subnet_id              = local.Okit_Sn001_id
     #vlan_id = <<Optional value not found in discovery>>
   }
   #dedicated_vm_host_id = <<Optional value not found in discovery>>
-  display_name = "LPORSHSSAPP162"
+  display_name = var.vm_display_name[count.index]#"LPORSHSSAPP162"
   freeform_tags = var.freeform_tags
   instance_options {
     are_legacy_imds_endpoints_disabled = "false"
@@ -83,9 +86,9 @@ resource oci_core_instance APP162 {
     ocpus                     = "4"
   }
   source_details {
-    boot_volume_size_in_gbs = "60"
+    boot_volume_size_in_gbs = var.boot_volume_size_in_gbs[count.index]#"60"
     #kms_key_id = <<Optional value not found in discovery>>
-    source_id   = var.APP162_source_image_id
+    source_id   = var.vm_source_image_id[count.index]
     source_type = "bootVolume"
   }
   state = "RUNNING"
