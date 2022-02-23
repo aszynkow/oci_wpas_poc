@@ -63,6 +63,8 @@ resource oci_core_volume_attachment volumeattachment20220125063516 {
   is_shareable = "true"
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared.id
+
+  depends_on = [oci_core_volume_attachment mastervolatt1,oci_core_volume_attachment mastervolatt1,]
 }
 
 resource oci_core_volume_attachment volumeattachment20220207044931 {
@@ -77,4 +79,5 @@ resource oci_core_volume_attachment volumeattachment20220207044931 {
   is_shareable = "true"
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared_10gb.id
+  depends_on = [oci_core_volume_attachment mastervolatt1,oci_core_volume_attachment mastervolatt2,]
 }
