@@ -7,7 +7,7 @@ resource "tls_private_key" "ssh_key" {
 
 locals {
 
-gen_public_key = tls_private_key.ssh_key.public_key_openssh)
+gen_public_key = chomp(tls_private_key.ssh_key.public_key_openssh)
 gen_priv_key = tls_private_key.ssh_key.private_key_pem
 
 }
