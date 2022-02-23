@@ -1,4 +1,4 @@
-resource oci_core_instance master {
+/*resource oci_core_instance master {
 
   agent_config {
     are_all_plugins_disabled = "false"
@@ -91,10 +91,10 @@ resource oci_core_instance master {
   }
   state = var.vm_state[var.master_vm - 1]#"RUNNING"
 }
-
+*/
 resource oci_core_instance APP162 {
 
- count = local.vm_count -1 
+ count = local.vm_count #-1 
 
   agent_config {
     are_all_plugins_disabled = "false"
@@ -187,5 +187,5 @@ resource oci_core_instance APP162 {
   }
   state = var.vm_state[count.index]#"RUNNING"
 
-  depends_on = [oci_core_instance.master,]
+  #depends_on = [oci_core_instance.master,]
 }

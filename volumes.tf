@@ -1,4 +1,3 @@
-
 resource oci_core_volume ocfs2_shared {
   availability_domain = local.ad
   #block_volume_replicas_deletion = <<Optional value not found in discovery>>
@@ -25,7 +24,7 @@ resource oci_core_volume ocfs2_shared_10gb {
   vpus_per_gb = "10"
 }
 
-resource oci_core_volume_attachment mastervolatt1 {
+/*resource oci_core_volume_attachment mastervolatt1 {
   attachment_type = "paravirtualized"
   device          = "/dev/oracleoci/oraclevdb"
   display_name    =  join("",["volumeattachmenocfs2",var.master_vm - 1])
@@ -50,9 +49,9 @@ resource oci_core_volume_attachment mastervolatt2 {
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared_10gb.id
 }
-
+*/
 resource oci_core_volume_attachment volumeattachment20220125063516 {
-  count = local.vm_count - 1
+  count = local.vm_count #- 1
   attachment_type = "paravirtualized"
   device          = "/dev/oracleoci/oraclevdb"
   display_name    =  join("",["volumeattachmenocfs2",count.index])
@@ -64,11 +63,11 @@ resource oci_core_volume_attachment volumeattachment20220125063516 {
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared.id
 
-  depends_on = [oci_core_volume_attachment.mastervolatt1,oci_core_volume_attachment.mastervolatt1,]
+  #depends_on = [oci_core_volume_attachment.mastervolatt1,oci_core_volume_attachment.mastervolatt1,]
 }
 
 resource oci_core_volume_attachment volumeattachment20220207044931 {
-  count = local.vm_count - 1 
+  count = local.vm_count #- 1 
   attachment_type = "paravirtualized"
   device          = "/dev/oracleoci/oraclevdc"
   display_name    = join("",["volumeattachmenocfs210gb",count.index])
@@ -79,5 +78,5 @@ resource oci_core_volume_attachment volumeattachment20220207044931 {
   is_shareable = "true"
   #use_chap = <<Optional value not found in discovery>>
   volume_id = oci_core_volume.ocfs2_shared_10gb.id
-  depends_on = [oci_core_volume_attachment.mastervolatt1,oci_core_volume_attachment.mastervolatt2,]
+  #depends_on = [oci_core_volume_attachment.mastervolatt1,oci_core_volume_attachment.mastervolatt2,]
 }
