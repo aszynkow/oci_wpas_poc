@@ -35,6 +35,6 @@ output "Vcn_id" {
    sensitive = true
 }
 */
-output "generated_ssh_public_key" {
+output "ssh_public_key" {
   value = local.aux_pub_key
 }
