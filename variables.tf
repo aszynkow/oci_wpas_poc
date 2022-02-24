@@ -115,7 +115,7 @@ variable boot_volume_size_in_gbs {
 }
 
 variable vm_source_image_id { 
-    default = ["ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
+    default = ["ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrxlio2nk4fph2wseklu3qzufja2nfoweiiodymzl7mafrdgl57rja", #"ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrpyyap7ibfcd3qmkdh4bkyhjwk6vfjaren2ig6kwvw3mfuwjwayuq",
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrhr3gng3ghlqr2bgu5i6m3emllzxbpbh5lzvi6hhh45r4ym6xhita",
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrhu2loq6p4d7ggh5rec7xiwezhurp2f4635cfh5frk35chbbdxx6q",
     "ocid1.bootvolume.oc1.ap-sydney-1.abzxsljrg2bakv2pe66jf2z4vvijquj4xvudj3w3f3xx7crqi54ojpwjknza",
