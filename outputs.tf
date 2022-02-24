@@ -30,8 +30,8 @@ output "Vcn_id" {
     value = local.Okit_Vcn001_id
 }
 
-output "generated_ssh_private_key" {
-  value =  nonsensitive(local.gen_priv_key)
+output "ssh_private_key" {
+  value =  var.ssh_authorized_keys !=null ? "Provided by user" : nonsensitive(local.gen_priv_key)
    #sensitive = true
 }
 
