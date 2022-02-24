@@ -415,6 +415,7 @@ resource "oci_core_security_list" "Okit_Sl002" {
       min = "631"
       #source_port_range = <<Optional value not found in discovery>>
     }
+  }
     ingress_security_rules {
     #description = <<Optional value not found in discovery>>
     #icmp_options = <<Optional value not found in discovery>>
